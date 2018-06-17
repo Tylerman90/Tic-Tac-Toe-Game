@@ -19,7 +19,7 @@ def display_board(board):
 
 
 def inputPlayerLetter():
-	#Let's the player type which letter they want to be.
+	#Let's the player type which letter they want to play as.
 	#Returns a list with the player's letter as the first item, and the computer's letter as the second.
 	letter = ' '
 	while not (letter == 'X' or letter == 'O'):
@@ -31,6 +31,32 @@ def inputPlayerLetter():
 		return ['O', 'X']
 
 def whoGoesFirst():
+	#select the number 0 or 1, if it's 0 the player will be first.
+	if random.randint(0, 1) == 0:
+		return 'player'
+	else:
+		return 'computer'
 
-board = [' '] * 10
-playerLetter, computerLetter = inputPlayerLetter()
+def playagain():
+	# return true if the player wants to play again.
+	input("Would you like to play again? (yes or no)\n>>>>")
+	return input.lowercase().startswith('y')
+
+def makeMove(board, letter, move):
+	board[move] = letter
+
+	
+
+while True:
+	theBoard = [' '] * 10
+	playerLetter, computerLetter = inputPlayerLetter()
+	turn = whoGoesFirst()
+	print('The ' + turn + ' will go first!')
+	gameIsPlaying = True
+
+	while gameIsPlaying:
+		if turn == 'player':
+			display_board(theBoard)
+			input("Select your space\n>>>>")
+		else:
+			print("You are so Gay!")
