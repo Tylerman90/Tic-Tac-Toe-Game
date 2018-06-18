@@ -45,7 +45,15 @@ def playagain():
 def makeMove(board, letter, move):
 	board[move] = letter
 
-	
+def isWinner(bo, le):
+	return ((bo[1] == le and bo[2] == le and bo[3] == le) or (bo[4] == le and bo[5] == le and bo[6] == le) or (bo[7] == le and bo[8] == le and bo[9] == le) or (bo[1] == le and bo [4] == le and bo [7] == le) or (bo[2] == le and bo [5] == le and bo [8] == le) or (bo[3] == le and bo [6] == le and bo [9] == le) or (bo[1] == le and bo [5] == le and bo [9] == le) or (bo[3] == le and bo [5] == le and bo [7] == le)
+
+def getPlayerMove(board):
+	#Let the player type in their move
+	move = ' '
+	while move not in '1 2 3 4 5 6 7 8 9'.split():
+		move = input("What's your next move? (1-9)\n>>>>")
+	return int(move)
 
 while True:
 	theBoard = [' '] * 10
@@ -57,6 +65,7 @@ while True:
 	while gameIsPlaying:
 		if turn == 'player':
 			display_board(theBoard)
-			input("Select your space\n>>>>")
-		else:
-			print("You are so Gay!")
+			move = getPlayerMove(theBoard)
+			makeMove(theBoard, playerLetter, move)
+			
+
