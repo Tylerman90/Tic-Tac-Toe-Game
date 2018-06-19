@@ -49,22 +49,22 @@ def makeMove(board, letter, move):
 
 def isWinner(bo, le):
 	return ((bo[1] == le and bo[2] == le and bo[3] == le) 
-		or (bo[4] == le and bo[5] == le and bo[6] == le) 
-		or (bo[7] == le and bo[8] == le and bo[9] == le) 
-		or (bo[1] == le and bo [4] == le and bo [7] == le) 
-		or (bo[2] == le and bo [5] == le and bo [8] == le) 
-		or (bo[3] == le and bo [6] == le and bo [9] == le) 
-		or (bo[1] == le and bo [5] == le and bo [9] == le) 
-		or (bo[3] == le and bo [5] == le and bo [7] == le)
+	or (bo[4] == le and bo[5] == le and bo[6] == le) 
+	or (bo[7] == le and bo[8] == le and bo[9] == le) 
+	or (bo[1] == le and bo [4] == le and bo [7] == le) 
+	or (bo[2] == le and bo [5] == le and bo [8] == le) 
+	or (bo[3] == le and bo [6] == le and bo [9] == le) 
+	or (bo[1] == le and bo [5] == le and bo [9] == le) 
+	or (bo[3] == le and bo [5] == le and bo [7] == le))
 
 
 
 def getBoardCopy(board):
 	dupeBoard = []
-
 	for i in board:
 		dupeBoard.append(i)
 	return dupeBoard
+
 
 
 
