@@ -71,12 +71,40 @@ def getBoardCopy(board):
 def isSpaceFree(board, move):
 	return board[move] == ' '
 
+
 def getPlayerMove(board):
 	#Let the player type in their move
 	move = ' '
 	while move not in '1 2 3 4 5 6 7 8 9'.split():
 		move = input("What's your next move? (1-9)\n>>>>")
 	return int(move)
+
+
+def chooseRandomMoveFromList(board, movesList):
+	possibleMoves = []
+	for i in movesList:
+		if isSpaceFree(board, i):
+			possibleMoves.append(i)
+
+		if len(possibleMoves) != 0:
+			return random.choice(possibleMoves)
+		else:
+			return None
+
+
+
+def getComputerMove(board, computerLetter):
+	if computerLetter == 'X':
+		playerLetter = 'O'
+	else:
+		playerLetter = 'X'
+
+	for i in range(1, 10):
+		copy = getBoardCopy(board)
+		if isSpaceFree(copy, i):
+			makeMove(copy, computerLetter):
+			return i
+
 
 print("Welcome to Tic Tac Toe!")
 
@@ -86,9 +114,6 @@ while True:
 	turn = whoGoesFirst()
 	print('The ' + turn + ' will go first!')
 	gameIsPlaying = True
-
-	def isBoardFull(board):
-		#Returns true if every space on the board has been taken. Otherwise returns false.
 
 	while gameIsPlaying:
 		#Player's turn.
