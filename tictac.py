@@ -89,6 +89,14 @@ while True:
 				displayBoard(theBoard)
 				print("The computer has won!")
 				gameIsPlaying = False
+			else:
+				if isBoardFull(theBoard):
+					displayBoard(theBoard)
+					print('It is a tie!')
+					break
+				else:
+					turn == 'player'
+
 
 
 
