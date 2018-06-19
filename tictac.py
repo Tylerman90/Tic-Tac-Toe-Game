@@ -63,6 +63,7 @@ while True:
 	gameIsPlaying = True
 
 	while gameIsPlaying:
+		#Player's turn.
 		if turn == 'player':
 			display_board(theBoard)
 			move = getPlayerMove(theBoard)
@@ -79,6 +80,16 @@ while True:
 					break
 				else:
 					turn == 'computer'
+		else:
+			#Computer's turn.
+			move = getPlayerMove(theBoard, computerLetter)
+			makeMove(theBoard, computerLetter, move)
+
+			if isWinner(theBoard, computerLetter):
+				displayBoard(theBoard)
+				print("The computer has won!")
+				gameIsPlaying = False
+
 
 
 
