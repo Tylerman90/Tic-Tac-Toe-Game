@@ -1,6 +1,5 @@
 #TicTacToe by Tyler Gunter
 import random
-print("Welcome to Tic Tac Toe!")
  
 #Defining the display board function
 def display_board(board):
@@ -18,6 +17,7 @@ def display_board(board):
 
 
 
+
 def inputPlayerLetter():
 	#Let's the player type which letter they want to play as.
 	#Returns a list with the player's letter as the first item, and the computer's letter as the second.
@@ -29,6 +29,8 @@ def inputPlayerLetter():
 		return ['X', 'O']
 	else:
 		return ['O', 'X']
+
+
 
 def whoGoesFirst():
 	#select the number 0 or 1, if it's 0 the player will be first.
@@ -46,7 +48,28 @@ def makeMove(board, letter, move):
 	board[move] = letter
 
 def isWinner(bo, le):
-	return ((bo[1] == le and bo[2] == le and bo[3] == le) or (bo[4] == le and bo[5] == le and bo[6] == le) or (bo[7] == le and bo[8] == le and bo[9] == le) or (bo[1] == le and bo [4] == le and bo [7] == le) or (bo[2] == le and bo [5] == le and bo [8] == le) or (bo[3] == le and bo [6] == le and bo [9] == le) or (bo[1] == le and bo [5] == le and bo [9] == le) or (bo[3] == le and bo [5] == le and bo [7] == le)
+	return ((bo[1] == le and bo[2] == le and bo[3] == le) 
+		or (bo[4] == le and bo[5] == le and bo[6] == le) 
+		or (bo[7] == le and bo[8] == le and bo[9] == le) 
+		or (bo[1] == le and bo [4] == le and bo [7] == le) 
+		or (bo[2] == le and bo [5] == le and bo [8] == le) 
+		or (bo[3] == le and bo [6] == le and bo [9] == le) 
+		or (bo[1] == le and bo [5] == le and bo [9] == le) 
+		or (bo[3] == le and bo [5] == le and bo [7] == le)
+
+
+
+def getBoardCopy(board):
+	dupeBoard = []
+
+	for i in board:
+		dupeBoard.append(i)
+	return dupeBoard
+
+
+
+def isSpaceFree(board, move):
+	return board[move] == ' '
 
 def getPlayerMove(board):
 	#Let the player type in their move
@@ -55,12 +78,17 @@ def getPlayerMove(board):
 		move = input("What's your next move? (1-9)\n>>>>")
 	return int(move)
 
+print("Welcome to Tic Tac Toe!")
+
 while True:
 	theBoard = [' '] * 10
 	playerLetter, computerLetter = inputPlayerLetter()
 	turn = whoGoesFirst()
 	print('The ' + turn + ' will go first!')
 	gameIsPlaying = True
+
+	def isBoardFull(board):
+		#Returns true if every space on the board has been taken. Otherwise returns false.
 
 	while gameIsPlaying:
 		#Player's turn.
@@ -96,6 +124,8 @@ while True:
 					break
 				else:
 					turn == 'player'
+	if not playAgain():
+		break
 
 
 
