@@ -67,5 +67,22 @@ while True:
 			display_board(theBoard)
 			move = getPlayerMove(theBoard)
 			makeMove(theBoard, playerLetter, move)
+
+			if isWinner(theBoard, playerLetter):
+				displayBoard(theBoard)
+				print("Congratulations! You won the game.")
+				gameIsPlaying = False
+			else:
+				if isBoardFull(theBoard):
+					displayBoard(theBoard)
+					print('It is a tie!')
+					break
+				else:
+					turn == 'computer'
+
+
+
+
+
 			
 
