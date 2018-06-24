@@ -147,7 +147,7 @@ while True:
 	gameIsPlaying = True
 
 	while gameIsPlaying:
-		#Player's turn.
+		#Player's turn
 		if turn == 'player':
 			displayBoard(theBoard)
 			move = getPlayerMove(theBoard)
